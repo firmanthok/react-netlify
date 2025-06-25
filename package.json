@@ -1,0 +1,79 @@
+{
+  "name": "react-tailwindcss-netlify-starter",
+  "version": "0.1.0",
+  "description": "My project template for a barebones React/Tailwind CSS PWA front-end hosted on Netlify with an example Netlify function that can be used on the back-end",
+  "private": true,
+  "engines": {
+    "node": ">= 22.x",
+    "npm": ">= 10.x"
+  },
+  "scripts": {
+    "build": "vite build && npm run lambda:build",
+    "clean": "rm -rf ./build && rm -rf ./lambda",
+    "dev": "vite serve --port 3000",
+    "lambda:build": "netlify-lambda build ./src/functions",
+    "lambda:serve": "netlify-lambda serve ./src/functions --config ./functions.config.js",
+    "prebuild": "npm run clean",
+    "preview": "vite preview",
+    "start": "concurrently 'npm run dev' 'npm run lambda:serve' --names '📦,💻' --prefix '[{name}] ' --kill-others",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "repository": {
+    "url": "https://github.com/mikesprague/react-tailwindcss-netlify-starter"
+  },
+  "author": {
+    "name": "Michael Sprague",
+    "email": "mikesprague@gmail.com"
+  },
+  "homepage": "",
+  "license": "MIT",
+  "dependencies": {
+    "@tailwindcss/typography": "0.5.16",
+    "@tailwindcss/vite": "4.1.10",
+    "@tippyjs/react": "4.2.6",
+    "cross-env": "7.0.3",
+    "daisyui": "5.0.43",
+    "dayjs": "1.11.13",
+    "he": "1.2.0",
+    "jotai": "2.12.5",
+    "nanoid": "5.1.5",
+    "prop-types": "15.8.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-icons": "5.5.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.0.5",
+    "@tailwindcss/typography": "0.5.16",
+    "@vitejs/plugin-react-swc": "3.10.2",
+    "concurrently": "9.2.0",
+    "cz-git": "1.11.2",
+    "dotenv": "16.5.0",
+    "netlify-cli": "22.1.5",
+    "netlify-lambda": "2.0.16",
+    "stylelint": "16.21.0",
+    "stylelint-config-standard": "38.0.0",
+    "tailwindcss": "4.1.10",
+    "vite": "7.0.0",
+    "vite-plugin-html": "3.2.2",
+    "vite-plugin-pwa": "1.0.0"
+  },
+  "browserslist": {
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-git"
+    }
+  },
+  "volta": {
+    "node": "22.13.1",
+    "npm": "10.9.2"
+  }
+}
